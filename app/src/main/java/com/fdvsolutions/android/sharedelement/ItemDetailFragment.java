@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.fdvsolutions.android.sharedelement.dummy.DummyContent;
 
 /**
@@ -58,6 +59,7 @@ public class ItemDetailFragment extends Fragment {
             ((TextView) view.findViewById(R.id.item_id)).setText(mItem.id);
             ((TextView) view.findViewById(R.id.item_content)).setText(mItem.content);
             ((TextView) view.findViewById(R.id.item_detail)).setText(mItem.details);
+            ((SimpleDraweeView) view.findViewById(R.id.item_image)).setImageURI(mItem.image);
         }
     }
 }

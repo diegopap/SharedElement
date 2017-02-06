@@ -4,12 +4,11 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <ImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/image"
         android:layout_width="155dp"
         android:layout_height="200dp"
-        android:layout_margin="@dimen/text_margin"
-        android:src="@drawable/cute_dog" />
+        android:layout_margin="@dimen/text_margin" />
 
     <TextView
         android:id="@+id/id"

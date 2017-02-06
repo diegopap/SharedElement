@@ -5,9 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.fdvsolutions.android.sharedelement.dummy.DummyContent;
 
 import java.util.List;
@@ -36,12 +36,16 @@ public class SimpleItemRecyclerViewAdapter
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        DummyContent.DummyItem item = mValues.get(position);
+
+        holder.mIdView.setText(item.id);
+        holder.mContentView.setText(item.content);
 
         ViewCompat.setTransitionName(holder.mIdView, "id" + position);
         ViewCompat.setTransitionName(holder.mContentView, "content" + position);
         ViewCompat.setTransitionName(holder.mImageView, "image" + position);
+
+        holder.mImageView.setImageURI(item.image);
 
         holder.mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,13 +64,13 @@ public class SimpleItemRecyclerViewAdapter
 
         public final TextView mIdView;
         public final TextView mContentView;
-        public final ImageView mImageView;
+        public final SimpleDraweeView mImageView;
 
         public ViewHolder(View view) {
             super(view);
             mIdView = (TextView) view.findViewById(R.id.id);
             mContentView = (TextView) view.findViewById(R.id.content);
-            mImageView = (ImageView) view.findViewById(R.id.image);
+            mImageView = (SimpleDraweeView) view.findViewById(R.id.image);
         }
 
     }

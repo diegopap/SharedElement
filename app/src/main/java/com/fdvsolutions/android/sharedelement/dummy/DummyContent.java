@@ -13,6 +13,8 @@ import java.util.Map;
  */
 public class DummyContent {
 
+    private static final String IMAGE_URL = "http://images.all-free-download.com/images/graphiclarge/cute_dog_photo_picture_7_168843.jpg";
+
     /**
      * An array of sample (dummy) items.
      */
@@ -38,7 +40,7 @@ public class DummyContent {
     }
 
     private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position), IMAGE_URL);
     }
 
     private static String makeDetails(int position) {
@@ -57,11 +59,13 @@ public class DummyContent {
         public final String id;
         public final String content;
         public final String details;
+        public final String image;
 
-        public DummyItem(String id, String content, String details) {
+        public DummyItem(String id, String content, String details, String image) {
             this.id = id;
             this.content = content;
             this.details = details;
+            this.image = image;
         }
 
         @Override
