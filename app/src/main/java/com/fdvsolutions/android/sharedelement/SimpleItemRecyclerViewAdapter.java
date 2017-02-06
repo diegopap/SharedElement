@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fdvsolutions.android.sharedelement.dummy.DummyContent;
@@ -40,8 +41,9 @@ public class SimpleItemRecyclerViewAdapter
 
         ViewCompat.setTransitionName(holder.mIdView, "id" + position);
         ViewCompat.setTransitionName(holder.mContentView, "content" + position);
+        ViewCompat.setTransitionName(holder.mImageView, "image" + position);
 
-        holder.mIdView.setOnClickListener(new View.OnClickListener() {
+        holder.mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mListener.onItemClicked(holder, holder.getAdapterPosition());
@@ -58,12 +60,13 @@ public class SimpleItemRecyclerViewAdapter
 
         public final TextView mIdView;
         public final TextView mContentView;
-
+        public final ImageView mImageView;
 
         public ViewHolder(View view) {
             super(view);
             mIdView = (TextView) view.findViewById(R.id.id);
             mContentView = (TextView) view.findViewById(R.id.content);
+            mImageView = (ImageView) view.findViewById(R.id.image);
         }
 
     }

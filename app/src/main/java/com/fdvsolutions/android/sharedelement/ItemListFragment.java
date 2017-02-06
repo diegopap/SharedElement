@@ -2,7 +2,6 @@ package com.fdvsolutions.android.sharedelement;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,6 +44,7 @@ public class ItemListFragment extends Fragment implements ItemClickListener{
         getActivity().getSupportFragmentManager().beginTransaction()
                 .addSharedElement(holder.mIdView, "id")
                 .addSharedElement(holder.mContentView, "content")
+                .addSharedElement(holder.mImageView, "image")
                 .replace(R.id.frameLayout, fragment)
                 .addToBackStack(null)
                 .commit();
